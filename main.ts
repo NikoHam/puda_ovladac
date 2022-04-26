@@ -15,7 +15,9 @@ input.onButtonPressed(Button.B, function () {
 let state = 0
 radio.setGroup(1)
 state = 1
+let sprcha = 0
 basic.showNumber(state)
+pins.digitalWritePin(DigitalPin.P11, 1)
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P1) == 0) {
         radio.sendNumber(1)
@@ -25,5 +27,11 @@ basic.forever(function () {
     }
     if (pins.digitalReadPin(DigitalPin.P8) == 0) {
         radio.sendNumber(3)
+        if (sprcha == 0) {
+            pins.digitalWritePin(DigitalPin.P11, 1)
+            sprcha = 1
+        } else {
+            pins.digitalWritePin(DigitalPin.P11, 0)
+        }
     }
 })
