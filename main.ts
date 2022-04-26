@@ -5,7 +5,7 @@ input.onButtonPressed(Button.A, function () {
     basic.showNumber(state)
 })
 input.onButtonPressed(Button.B, function () {
-    if (state <= 8) {
+    if (state <= 10) {
         state += 1
     } else {
         state = 1
